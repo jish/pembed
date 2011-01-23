@@ -1,0 +1,33 @@
+<p>This is a page with some content in it.</p>
+<p>It also happens to have a link to a gist <a href="http://gist.github.com/791318">http://gist.github.com/791318</a> in it.</p>
+<p>And it also has some more content.</p>
+<p>Here is another paragraph with a more different gist <a href="https://gist.github.com/05fa444df81dc500cf14">https://gist.github.com/05fa444df81dc500cf14</a> in it.</p>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('a').each(function(i, link) {
+      var md = null;
+      var link = $(link);
+
+      console.log('checking');
+      if (md = link.attr('href').match(/https?:\/\/gist\.github\.com\/([\da-f]+)/)) {
+
+        console.log('found');
+        $.ajax({
+          url: '/gist/' + md[1] + '.json',
+          datatype: 'jsonp',
+          success: function(data) {
+            console.log('success');
+            console.log(data);
+            var element = $('<div></div>');
+            element.html(data.html);
+            link.parent().after(element);
+          },
+          error: function() {
+            console.log('error');
+          }
+        });
+      }
+    });
+  });
+</script>
