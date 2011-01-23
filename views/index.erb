@@ -1,39 +1,68 @@
 <h1>PEmbed</h1>
 
-<h2>Why is it called PEmbed</h2>
+<h2>What does it do?</h2>
+<div class="clearfix">
+  <div class="left">
+    It turns this...
+    <%= erb :check_out_my_codez, :layout => false %>
+  </div>
+  <div class="right scan_me">
+    Into this:
+    <%= erb :check_out_my_codez, :layout => false %>
+  </div>
+</div>
+
+<h2>Why is it called PEmbed?</h2>
 <p>Just as 'b' comes after 'a', 'p'embed comes after 'o'embed</p>
 <p>Also, I'm uncreative and just wanted a quick name to test out some new obembed ideas.</p>
 
 <h2>Objective</h2>
-<p>To dynamically turn a link to a <a href="https://gist.github.com/">gist</a> into an embedded gist.</p>
+<p>To dynamically turn a link to a <a href="https://gist.github.com/">gist</a> into embedded content that displays the gist.</p>
 
 <h2>Strategies</h2>
-<h3><a href="/iframe">iframe</a></h3>
-<h4>Cons</h4>
-<ul>
-  <li>A fixed height. No matter how much content a gist has, I have yet to find a good way to dynamically resize the iframe.</li>
-</ul>
+<p>Currently, I am investigating two strategies: iframe, and jsonp.</p>
+
+<div class="clearfix">
+  <div class="left">
+    <h3><a href="/iframe">1. iframe</a></h3>
+    <p>Fetching the gist content by setting the <code>src</code> attribute on an iframe</p>
+    <h4>Cons</h4>
+    <ul>
+      <li>A fixed height. No matter how much content a gist has, I have yet to find a good way to dynamically resize the iframe.</li>
+    </ul>
+  </div>
+
+  <div class="right">
+    <h3><a href="/jsonp">2. JSONP</a></h3>
+    <p>Fetching json with embedded html content from a remote server using jsonp.</p>
+    <h4>Pros</h4>
+    <ul>
+      <li>Fluid height. The embed adheres to the height of the gist.</li>
+    </ul>
+
+    <h4>Cons</h4>
+    <ul>
+      <li>Seems to be altering the style of the page when the gist embed stylesheet is loaded.</li>
+    </ul>
+  </div>
+</div>
 
 
-<h3><a href="/jsonp">JSONP</a></h3>
-<h4>Pros</h4>
-<ul>
-  <li>Fluid height. The embed adheres to the height of the gist.</li>
-</ul>
-
-<h4>Cons</h4>
-<ul>
-  <li>Seems to be altering the style of the page when the gist embed stylesheet is loaded.</li>
-</ul>
 
 <h2>Next steps</h2>
-<p>Currently, PEmbed is just a proof of concept. Some ideas for the future.</p>
+<p>Currently, PEmbed is just a proof of concept. Some ideas for the future:</p>
 
-<p>Clean up in general. Website, code.</p>
 <p>A nice interface.</p>
 <pre>
-<code>PEmbed.embed('div.selector a')</code>
-<code>PEmbed.embed('div.selector a', { type: 'iframe'})</code>
-<code>PEmbed.embed('div.selector a', { type: 'jsonp'})</code>
+<code>PEmbed.embed('div.selector')</code>
+<code>PEmbed.embed('div.selector', { type: 'iframe'})</code>
+<code>PEmbed.embed('div.selector', { type: 'jsonp'})</code>
 </pre>
 <p>Be nicer to Heroku. (Currently making an http request inside of an http request !bad)</p>
+
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    PEmbed.embed('.content .scan_me');
+  });
+</script>

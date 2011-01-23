@@ -2,12 +2,19 @@
 <html>
   <head>
     <title>PEmbed</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/pembed.js" type="text/javascript" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="/css/pembed.css" type="text/css" media="screen" charset="utf-8">
   </head>
 
   <body>
 
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
 
   </body>
 </html>

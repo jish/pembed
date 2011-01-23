@@ -1,0 +1,35 @@
+
+.content {
+  margin: auto;
+  width: 960px;
+}
+
+.content .left {
+  float: left;
+  width: 470px;
+}
+
+.content .right {
+  float: right;
+  width: 470px;
+}
+
+.content h1 {
+  margin-top: 10px;
+}
+
+.content h2 {
+  margin-top: 20px;
+}
+
+.content h3 {
+  margin-top: 10px;
+}
+
+.content p {
+  margin: 5px 0;
+}
+
+div.pembed {
+  overflow-x: auto;
+}

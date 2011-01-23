@@ -5,29 +5,6 @@
 
 <script type="text/javascript" charset="utf-8">
   $(function() {
-    $('a').each(function(i, link) {
-      var md = null;
-      var link = $(link);
-
-      console.log('checking');
-      if (md = link.attr('href').match(/https?:\/\/gist\.github\.com\/([\da-f]+)/)) {
-
-        console.log('found');
-        $.ajax({
-          url: 'http://pembed.heroku.com/gist/' + md[1] + '.json',
-          dataType: 'jsonp',
-          success: function(data) {
-            console.log('success');
-            console.log(data);
-            var element = $('<div></div>');
-            element.html(data.html);
-            link.parent().after(element);
-          },
-          error: function() {
-            console.log('error');
-          }
-        });
-      }
-    });
+    PEmbed.embed('body')
   });
 </script>
