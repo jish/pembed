@@ -23,5 +23,17 @@
 
 <h4>Cons</h4>
 <ul>
-  <li>Seems to be altering the style of the page when the gist embed stylesheet is loaded</li>
+  <li>Seems to be altering the style of the page when the gist embed stylesheet is loaded.</li>
 </ul>
+
+<h2>Next steps</h2>
+<p>Currently, PEmbed is just a proof of concept. Some ideas for the future.</p>
+
+<p>Clean up in general. Website, code.</p>
+<p>A nice interface.</p>
+<pre>
+<code>PEmbed.embed('div.selector a')</code>
+<code>PEmbed.embed('div.selector a', { type: 'iframe'})</code>
+<code>PEmbed.embed('div.selector a', { type: 'jsonp'})</code>
+</pre>
+<p>Be nicer to Heroku. (Currently making an http request inside of an http request !bad)</p>

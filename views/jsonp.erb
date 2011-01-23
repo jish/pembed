@@ -14,8 +14,8 @@
 
         console.log('found');
         $.ajax({
-          url: '/gist/' + md[1] + '.json',
-          datatype: 'jsonp',
+          url: 'http://pembed.heroku.com/gist/' + md[1] + '.json',
+          dataType: 'jsonp',
           success: function(data) {
             console.log('success');
             console.log(data);
