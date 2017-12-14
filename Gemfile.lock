@@ -3,7 +3,7 @@ GEM
   specs:
     mustermann (1.0.1)
     rack (2.0.3)
-    rack-contrib (2.0.0)
+    rack-contrib (2.0.1)
       rack (~> 2.0)
     rack-protection (2.0.0)
       rack
